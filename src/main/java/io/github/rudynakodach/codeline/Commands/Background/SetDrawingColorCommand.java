@@ -15,6 +15,10 @@ public class SetDrawingColorCommand implements CommandExecutor {
 
     @Override
     public void execute() {
-        command.drawer().graphics.setColor(new Color(Integer.parseInt(command.args()[0]), Integer.parseInt(command.args()[1]), Integer.parseInt(command.args()[2])));
+        command.drawer().graphics.setColor(new Color(
+                Math.min(Integer.parseInt(command.args()[0]), 255),
+                Math.min(Integer.parseInt(command.args()[1]), 255),
+                Math.min(Integer.parseInt(command.args()[2]), 255)
+        ));
     }
 }
